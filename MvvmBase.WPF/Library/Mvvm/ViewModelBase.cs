@@ -5,12 +5,12 @@ using System.Windows.Threading;
 namespace Riesling.Library.Mvvm {
 	public class ViewModelBase : ModelBase {
 
-		private static Dispatcher UIDispatcher => Application.Current?.Dispatcher;
+		private static Dispatcher UIDispatcher => Application.Current.Dispatcher;
 
 		#region Events
 
 		protected override void RaisePropertiesChanged(IEnumerable<string> propertyNames) {
-			if (UIDispatcher?.CheckAccess() ?? true) {
+			if (UIDispatcher.CheckAccess()) {
 				base.RaisePropertiesChanged(propertyNames);
 			} else {
 				UIDispatcher.BeginInvoke(() => {
@@ -30,18 +30,18 @@ namespace Riesling.Library.Mvvm {
 
 		#region Instances
 
-		protected TModelBase _Model;
+		protected TModelBase? _Model;
 
 		#endregion
 
 		#region Properties
 
-		public TModelBase Model {
+		public TModelBase? Model {
 			get => _Model;
 			set => SetProperty(ref _Model, value, Model_Changed);
 		}
 
-		protected virtual void Model_Changed(TModelBase newModel, TModelBase oldModel) {
+		protected virtual void Model_Changed(TModelBase? newModel, TModelBase? oldModel) {
 			if (oldModel != null) {
 				oldModel.PropertyChanged -= Model_PropertyChanged;
 			}
@@ -54,7 +54,7 @@ namespace Riesling.Library.Mvvm {
 
 		#region Constructor
 
-		public ViewModelBase(TModelBase model) {
+		public ViewModelBase(TModelBase? model = null) {
 			Model = model;
 		}
 
