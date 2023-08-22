@@ -14,7 +14,7 @@ public class SampleModel : ModelBase {
     set => SetProperty(ref _Title, value, TitleChanged);
   }
 
-  protected void TigleChanged(string newValue, string oldValue) {
+  protected void TitleChanged(string newValue, string oldValue) {
     // TODO
   }
 }
