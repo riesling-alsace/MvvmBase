@@ -1,0 +1,6 @@
+[submodule "MvvmBase.MAUI"]
+	path = MvvmBase.MAUI
+	url = https://github.com/riesling-alsace/MvvmBase.MAUI.git
+[submodule "MvvmBase.WPF"]
+	path = MvvmBase.WPF
+	url = https://github.com/riesling-alsace/MvvmBase.WPF.git
