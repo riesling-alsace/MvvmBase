@@ -1,13 +1,13 @@
 # Description
 
-MVVMの基礎クラスとして`INotifyPropertyChanged`から派生させた、`ModelBase`(Model用)と`ViewModelBase`(ViewModel用)を実装しました。
+MVVMの基礎クラスとして`INotifyPropertyChanged`から派生させた、`BindableBase`(汎用)と`ViewModelBase`(ViewModel用)を実装しました。
 
 `ViewModelBase`はマルチスレッドも対応しています。通知を送る際にサブスレッドであればメインスレッドで通知を呼び出すようになっています。
 
 ## ModelBase
 
 ```CS
-public class SampleModel : ModelBase {
+public class SampleModel : BindableBase {
   private string _Title;
   public string Title {
     get => _Title;
@@ -20,7 +20,7 @@ public class SampleModel : ModelBase {
 }
 ```
 
-## ViewModelBase
+## ViewModelBase(WPF/MAUI)
 
 ```CS
 public class SampleViewModel : ViewModelBase<SampleModel> {
