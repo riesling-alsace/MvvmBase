@@ -4,3 +4,6 @@
 [submodule "MvvmBase.WPF"]
 	path = MvvmBase.WPF
 	url = https://github.com/riesling-alsace/MvvmBase.WPF.git
+[submodule "MvvmBase.Core"]
+	path = MvvmBase.Core
+	url = https://github.com/riesling-alsace/MvvmBase.Core.git
